@@ -1,7 +1,7 @@
 import ItemCount from "../Components/ItemCount";
 import ItemList from "../Components/ItemList";
 import { useEffect, useState } from 'react';
-import products from '../utils/products';
+import products from '../utils/Products';
 import ProducFetch from '../utils/ProducFetch'
 
 const ItemListContainer = (props) => {
@@ -21,18 +21,7 @@ const ItemListContainer = (props) => {
         <>
             <p>{props.greeting}</p>
             <ItemCount handleClick={handleClick} />
-
-            {
-                data.map(item => (
-                    <ItemList
-                        key={item.id}
-                        id={item.id}
-                        title={item.title}
-                        description={item.description}
-                        price={item.price}
-                        pictureURL={item.pictureURL} />
-                ))
-            }
+            <ItemList items={data}/>
             
         </>
     );
